@@ -9,8 +9,8 @@ After cloning the repo cd into the directory and run the script. It takes in 3 c
 
 #Examples of running the script 
 ruby repo.rb 'repo name' 'login' 'pw' 
-ruby repo.rb myRepo myuser mypassword
 
+ruby repo.rb myRepo myuser mypassword
 will create the repo 'myRepo' for the account given and initialize it with a defualt readme.
 
 
