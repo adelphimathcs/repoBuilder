@@ -1,6 +1,5 @@
 require 'github_api'
-require 'rest-client'
-repo = ''
+
 if ARGV.size != 3
   puts "wrong amount of args"
   Kernel.exit(true)

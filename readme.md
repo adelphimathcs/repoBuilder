@@ -13,9 +13,11 @@ ruby repo.rb 'repo name' 'login' 'pw'
 ruby repo.rb myRepo myuser mypassword
 will create the repo 'myRepo' for the account given and initialize it with a defualt readme.
 
+#Current status
+Currently you can create a repo and initialize it with a default readme. Which is still very useful for someone who wants to create a lot of repos very quickly. However, updating/create files does not function properly. 
 
 #TODO
-1. Get OAuth to work properly
+1. Get OAuth to work properly - I believe there is an issue with authentication(check issue)
 2. Get file updates to work - specifically update the default readme
 
 
