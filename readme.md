@@ -1,7 +1,7 @@
 #repo builder
 
 This app is meant to be an automation of creating github repos from your local command line.
-
+The library being used is called [Github_api](https://github.com/peter-murach/github) the documentation is extensive but not 100% accurate(as it seems).
 
 
 #How to use
