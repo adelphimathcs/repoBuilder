@@ -1,7 +1,7 @@
 require 'github_api'
-
+require 'rest-client'
 repo = ''
-if ARGV.size != 3 
+if ARGV.size != 3
   puts "wrong amount of args"
   Kernel.exit(true)
 else
@@ -10,22 +10,44 @@ else
   pw   =ARGV[2]
 end
 
-github = Github.new basic_auth: login+':'+pw
-github.oauth.app.create client_id: 'e7aca063777dbb66f81d',
-                      client_secret: 'f8801a74356bc5931052eb9f25b5595043f3ca1b',
-                      scopes: ['repo']
+file = File.open("keys.txt","r")
+
+client_id = file.readline.chomp
+client_secret = file.readline.chomp
+
+# github = Github.new basic_auth: login+':'+pw
+# github.oauth.app.create client_id: client_id,
+#                       client_secret: client_secret,
+#                       scopes: ['repo']
+
+github = Github.new client_id: client_id,
+                    client_secret: client_secret
+res = github.authorize_url scope: 'repo'
+
+puts "please navigate your browser to: " + res.to_s
+puts "Enter your url code "
+
+auth_code = $stdin.gets.chomp
+token = github.get_token(auth_code)
+
+github = Github.new do |c|
+  c.user          = login
+  c.basic_auth    = login+":"+pw
+  c.repo          = repo
+  c.oauth_token   = token.to_s
+  c.client_id     = client_id
+  c.client_secret = client_secret
+end
+
+#creates repo, throws error if already exists
+github.repos.create name: repo, auto_init: true
+
+contents = Github::Client::Repos::Contents.new 
+file = contents.find path: 'README.md', user: login, repo: repo
 
 
-#github.repos.create name: repo, auto_init: true
-
-#contents = Github::Client::Repos::Contents.new 
-# contents = github::Client::Repos::Contents.new
-# file = contents.find path: 'README.md', user: login, repo: repo
-# puts file.body
-# puts ''
-
-# contents.update login, repo, 'README.md',
-#   path: 'README.md',
-#   message: "update readme",
-#   content: "#readme content",
-#   sha: file.sha
+contents.update login, repo, 'README.md',
+  path: 'README.md',
+  message: "update readme",
+  content: "#readme content",
+  sha: file.sha
