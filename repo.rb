@@ -38,10 +38,12 @@ github = Github.new do |c|
   c.client_secret = client_secret
 end
 
-default_readme = File.open('default_readme.md' , 'rb') { |f| f.read }
+default_readme = File.open('default_readme.md', 'rb') { |f| f.read }
 
 # creates repo, throws error if already exists
-github.repos.create name: repo, org: github.org , description: 'Please put problem name here'
+github.repos.create name: repo, org: github.org,
+                    description: 'Please put problem name here'
+
 github.repos.contents.create github.user, repo,  'README.md',
                              org: github.org,
                              path: 'README.md',
