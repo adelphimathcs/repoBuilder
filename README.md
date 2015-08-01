@@ -22,7 +22,7 @@ git clone https://github.com/adelphimathcs/repoBuilder.git
 ```
 `cd` into the directory and run 
 ```
-gem install github_api
+gem install github_api highline
 ``` 
 
 Be sure to get your own client_id and client_secret by registering the app under your github account. A tutorial for doing this can be found [here](https://developer.github.com/guides/basics-of-authentication/)
