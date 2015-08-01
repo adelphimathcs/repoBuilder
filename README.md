@@ -24,6 +24,10 @@ git clone https://github.com/adelphimathcs/repoBuilder.git
 ```
 gem install github_api
 ``` 
+then run
+
+bundle install 
+``` 
 
 repoBuilder takes in 3 command line arguments for simplicity. Be sure to get your own client_id and client_secret by registering the app under your github account (Mine are kept private for security reasons). A tutorial for doing this can be found [here](https://developer.github.com/guides/basics-of-authentication/)
 
