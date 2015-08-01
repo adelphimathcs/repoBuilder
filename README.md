@@ -22,24 +22,17 @@ git clone https://github.com/adelphimathcs/repoBuilder.git
 ```
 `cd` into the directory and run 
 ```
-gem install github_api
+gem install github_api highline
 ``` 
 
-
-repoBuilder takes in 3 command line arguments for simplicity. Be sure to get your own client_id and client_secret by registering the app under your github account (Mine are kept private for security reasons). A tutorial for doing this can be found [here](https://developer.github.com/guides/basics-of-authentication/)
+Be sure to get your own client_id and client_secret by registering the app under your github account. A tutorial for doing this can be found [here](https://developer.github.com/guides/basics-of-authentication/)
 
  After you get your id/secret put them in a file called `keys.txt` with ID on line 1 and Secret on line 2. 
 
-## Examples of running the script 
-
+Finally, run 
 ```
-ruby repo.rb 'repo name' 'login' 'pw' 
+ruby repo.rb
 ```
-```
-ruby repo.rb myRepo myuser mypassword
-```
-
-This will create the repo 'myRepo' for the account given and initialize it with a default readme.
 
 ## Current status
 Currently you can create a repo and initialize it with a default `README.md`.  When the repo is created, be sure to update `README.md` with the correct information from the problem!
