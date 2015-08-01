@@ -48,9 +48,4 @@ This will create the repo 'myRepo' for the account given and initialize it with 
 ## Current status
 Currently you can create a repo and initialize it with a default readme. This is still very useful for someone who wants to create a lot of repos very quickly. However, updating/create files does not function properly. 
 
-## TODO
-1. Get OAuth to work properly - I believe there is an issue with authentication(check issue)
-
-
-
 
