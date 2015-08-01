@@ -24,11 +24,7 @@ git clone https://github.com/adelphimathcs/repoBuilder.git
 ```
 gem install github_api
 ``` 
-then run
 
-```
-bundle install 
-``` 
 
 repoBuilder takes in 3 command line arguments for simplicity. Be sure to get your own client_id and client_secret by registering the app under your github account (Mine are kept private for security reasons). A tutorial for doing this can be found [here](https://developer.github.com/guides/basics-of-authentication/)
 
@@ -43,16 +39,9 @@ ruby repo.rb 'repo name' 'login' 'pw'
 ruby repo.rb myRepo myuser mypassword
 ```
 
-This will create the repo 'myRepo' for the account given and initialize it with a defualt readme.
+This will create the repo 'myRepo' for the account given and initialize it with a default readme.
 
 ## Current status
-Currently you can create a repo and initialize it with a default readme. This is still very useful for someone who wants to create a lot of repos very quickly. However, updating/create files does not function properly. 
-
-## TODO
-1. Get OAuth to work properly - I believe there is an issue with authentication(check issue)
-2. Set up script to work for orgs instead of user accounts
-
-
-
+Currently you can create a repo and initialize it with a default `README.md`.  When the repo is created, be sure to update `README.md` with the correct information from the problem!
 
 
