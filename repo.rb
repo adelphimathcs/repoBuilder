@@ -1,8 +1,7 @@
 require 'github_api'
 
 if ARGV.size != 3
-  puts 'wrong amount of args'
-  Kernel.exit(true)
+  abort("Incorrect number of arguments (#{ARGV.size} for 3)")
 else
   repo = ARGV[0]
   login = ARGV[1]
@@ -23,7 +22,7 @@ github = Github.new client_id: client_id,
                     client_secret: client_secret
 res = github.authorize_url scope: 'repo'
 
-puts 'please navigate your browser to: ' + res.to_s
+puts 'Please navigate your browser to: ' + res.to_s
 puts 'Enter your url code '
 
 auth_code = $stdin.gets.chomp
