@@ -24,8 +24,6 @@ git clone https://github.com/adelphimathcs/repoBuilder.git
 ```
 gem install github_api
 ``` 
-then run
-
 bundle install 
 ``` 
 
