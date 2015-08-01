@@ -1,12 +1,11 @@
 require 'github_api'
+require 'highline/import'
 
-if ARGV.size != 3
-  abort("Incorrect number of arguments (#{ARGV.size} for 3)")
-else
-  repo = ARGV[0]
-  login = ARGV[1]
-  pw = ARGV[2]
-end
+puts 'Enter name of repository you wish to create: '
+repo = gets.chomp
+puts 'Enter your GitHub username: '
+login = gets.chomp
+pw = ask('Enter your GitHub password: ') { |q| q.echo="*" }
 
 file = File.open('keys.txt', 'r')
 
@@ -25,7 +24,7 @@ res = github.authorize_url scope: 'repo'
 puts 'Please navigate your browser to: ' + res.to_s
 puts 'Enter your url code '
 
-auth_code = $stdin.gets.chomp
+auth_code = gets.chomp
 token = github.get_token(auth_code)
 
 github = Github.new do |c|
