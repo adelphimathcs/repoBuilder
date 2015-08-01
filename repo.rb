@@ -37,14 +37,11 @@ github = Github.new do |c|
   c.client_secret = client_secret
 end
 
+default_readme = File.open('default_readme.md' , 'rb') { |f| f.read }
+
 # creates repo, throws error if already exists
-github.repos.create name: repo, auto_init: true
-
-contents = Github::Client::Repos::Contents.new
-file = contents.find path: 'README.md', user: login, repo: repo
-
-contents.update login, repo, 'README.md',
-                path: 'README.md',
-                message: 'update readme',
-                content: '#readme content',
-                sha: file.sha
+github.repos.create name: repo
+github.repos.contents.create login, repo,  'README.md',
+                             path: 'README.md',
+                             message: 'initializing default readme',
+                             content: default_readme
