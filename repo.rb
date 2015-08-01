@@ -29,7 +29,8 @@ auth_code = $stdin.gets.chomp
 token = github.get_token(auth_code)
 
 github = Github.new do |c|
-  c.user          = login
+  c.user          = 'adelphimathcs'
+  c.org           = 'adelphimathcs'
   c.basic_auth    = login + ':' + pw
   c.repo          = repo
   c.oauth_token   = token.to_s
@@ -40,8 +41,9 @@ end
 default_readme = File.open('default_readme.md' , 'rb') { |f| f.read }
 
 # creates repo, throws error if already exists
-github.repos.create name: repo
-github.repos.contents.create login, repo,  'README.md',
+github.repos.create name: repo, org: github.org , description: 'Please put problem name here'
+github.repos.contents.create github.user, repo,  'README.md',
+                             org: github.org,
                              path: 'README.md',
                              message: 'initializing default readme',
                              content: default_readme
