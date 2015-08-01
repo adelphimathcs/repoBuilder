@@ -50,8 +50,6 @@ Currently you can create a repo and initialize it with a default readme. This is
 
 ## TODO
 1. Get OAuth to work properly - I believe there is an issue with authentication(check issue)
-2. Set up script to work for orgs instead of user accounts
-
 
 
 
