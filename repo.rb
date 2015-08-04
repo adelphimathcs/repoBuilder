@@ -16,7 +16,8 @@ github = Github.new client_id: client_id,
                     client_secret: client_secret
 res = github.authorize_url scope: 'repo'
 
-puts 'Please navigate your browser to: ' + res.to_s
+puts 'Please navigate your browser to:'
+puts res.to_s
 puts 'Enter your url code '
 
 auth_code = gets.chomp
