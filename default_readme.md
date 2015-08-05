@@ -10,10 +10,10 @@ Problem description from the PE site
 
 ### First Clone the Repository
 
-The easiest way to download the needed files is to clone the entire repository from your personal account. You will need to install [Git](https://help.github.com/articles/set-up-git) for this. 
+The easiest way to download the needed files is to clone the entire repository. You will need to install [Git](https://help.github.com/articles/set-up-git) for this. 
 
 ```
-git clone https://github.com/USERNAME/ProjectEuler-####.git
+git clone https://github.com/adelphimathcs/ProjectEuler-####.git
 cd ProjectEuler-####
 ```
 
