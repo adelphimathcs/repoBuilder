@@ -2,6 +2,8 @@
 
 repoBuilder automates the creation of GitHub repositories from your local command line using the [Github_api](https://github.com/peter-murach/github).
 
+##We have created a single repository for project euler solutions, so this method of creating repositories is deprecated.
+
 
 ## Basic Usage
 

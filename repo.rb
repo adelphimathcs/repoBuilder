@@ -1,8 +1,13 @@
 require 'github_api'
 require 'highline/import'
 
-puts 'Enter name of repository you wish to create: '
+puts 'Enter name of repository you wish to create (The problem number in the form ####): '
 repo = gets.chomp
+
+if (repo =~ /[\d]{4}/).nil?
+  abort("Invalid repository name. Repository name should be of the form ####")
+end
+
 puts 'Enter your GitHub username: '
 login = gets.chomp
 pw = ask('Enter your GitHub password: ') { |q| q.echo="*" }
